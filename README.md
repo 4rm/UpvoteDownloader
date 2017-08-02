@@ -4,7 +4,7 @@ UpvoteDownloader allows you to download all of your upvoted or saved links from 
 Supported websites:
 <ul>
 <li>imgur</li>
-<li>reddit-hosted image</li>
+<li>reddit-hosted images</li>
 <li>direct tumblr links</li>
 <li>Everything supported by youtube-dl (see <a href="#youtube-dl">youtube-dl</a> for more)</li>
 </ul>
