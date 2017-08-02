@@ -71,8 +71,8 @@ Only a few steps are needed to get up and running. First open `UserInfo.py` for 
     <td>Should UpvoteDownloader download upvoted posts, saved posts, or both?</td>
     <td>
       <ul>
-        <li>0 = only upvoted links</li>
-        <li>1 = only saved links</li>
+        <li>0 = only upvoted</li>
+        <li>1 = only saved</li>
         <li>2 = both</li>
       </ul>
       </td>
