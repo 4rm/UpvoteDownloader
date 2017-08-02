@@ -95,7 +95,7 @@ In order to get your reddit client ID and secret,
       <li>Set "redirect uri" to something like "http://localhost:8080". Doesn't really matter what you choose as long as it's valid</li>
       <li>Click "create app"
     </ol>
-  <li>The code under "personal use script" is your client ID and the secret is your client secret. Enter it into UserInfo.py</li>
+  <li>The code under "personal use script" is your client ID and the secret is your client secret. Enter it into `UserInfo.py`</li>
 </ol>
 
 ### <a name="imgur">imgur</a>
@@ -109,7 +109,7 @@ In order to get your imgur client ID and secret (necessary to download albums, b
     <li>Set "Authorization callback URL" to something like "http://localhost:8080". Doesn't really matter what you choose as long as it's valid</li>
     <li>Enter a valid email</li>
   </ol>
-  <li>Your client ID and secret will be emailed to you. Enter it into UserInfo.py</li>
+  <li>Your client ID and secret will be emailed to you. Enter it into `UserInfo.py`</li>
 </ol>
 
 
