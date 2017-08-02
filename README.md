@@ -119,7 +119,7 @@ After `UserInfo.py` is set, make sure you have a stable internet connection and 
 
 ## <a name="youtube-dl">youtube-dl</a>
 
-<a href="https://rg3.github.io/youtube-dl/">youtube-dl</a> does most of the heavy lifting in this script, and supports a lot more than what's currently in the `ytdlsupport.txt` file. In the interest of removing clutter, I limited the file to only include websites that I personally tested and found to work well. A full list of the sites youtube-dl should support can be found <a href="https://rg3.github.io/youtube-dl/supportedsites.html">here</a>. You can added the domains to `ytdlsupport.txt` to include them in your downloads. Remeber to escape the periods (\.) and backslashes (\/) in longer urls.
+<a href="https://rg3.github.io/youtube-dl/">youtube-dl</a> does most of the heavy lifting in this script, and supports a lot more than what's currently in the `ytdlsupport.txt` file. In the interest of removing clutter, I limited the file to only include websites that I personally tested and found to work well. A full list of the sites youtube-dl should support can be found <a href="https://rg3.github.io/youtube-dl/supportedsites.html">here</a>. You can added the domains to `ytdlsupport.txt` to include them in your downloads. Remeber to escape the periods (\\.) and backslashes (\\/) in longer urls.
 
 ## <a name="goals">Goals</a>
 <ul>
