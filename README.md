@@ -51,7 +51,7 @@ Only a few steps are needed to get up and running. First open `UserInfo.py` for 
     <td>Should UpvoteDownloader skip imgur albums?</td>
     <td>    
       <ul>
-        <li>Avoid having to create imgur account</li>
+        <li>Avoids having to create imgur account</li>
         <li>Helps prevent reaching the imgur API request limit (easy to hit if you have a lot of upvoted/saved posts)</li>
       </ul>
      </td>
