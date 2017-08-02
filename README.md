@@ -62,7 +62,7 @@ Only a few steps are needed to get up and running. First open `UserInfo.py` for 
     <td>
       <ul>
         <li>Default location is a folder named "DownloadedUpvotes" in the same directory as UpvoteDownloader.py</li>
-        <li>imgur albums will be automatically downloaded to their own folder in the original order</li>
+        <li>imgur albums will be automatically downloaded to their own folder with images in the original order</li>
       </ul>
     </td>
   </tr>
