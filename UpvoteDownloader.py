@@ -60,7 +60,7 @@ for i in range(0,len(toDownload)):
         print('Post hidden! Ignoring...')
         continue
     if(bool(re.search('imgur',toDownload[i].url,re.IGNORECASE))):
-        if(bool(re.search('/a/',toDownload[i].url,re.IGNORECASE))):
+        if(bool(re.search('/a/|gallery',toDownload[i].url,re.IGNORECASE))):
             if ignoreImgurAlbums==False:
                 albumID=(toDownload[i].url.split('/')[4]).split('#')[0]
                 album_path=mypath+'/' + albumID + '/'
