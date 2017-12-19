@@ -125,5 +125,5 @@ After `UserInfo.py` is set, make sure you have a stable internet connection and 
 <ul>
 <li>Figure out how to download images from tumblr that don't end in an image file extension</li>
 <li>Change UserInfo.py to a cfg or text file</li>
-<li>Install youtube-dl and imgurpython for the user instead of them having to doit manully</li>
+<li>Install youtube-dl and imgurpython for the user instead of them having to do it manully</li>
 </ul>
