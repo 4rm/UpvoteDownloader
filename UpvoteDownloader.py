@@ -59,23 +59,56 @@ for i in range(0,len(toDownload)):
     if toDownload[i].hidden==True and ignoreHidden==True:
         print('Post hidden! Ignoring...')
         continue
-    if(bool(re.search('imgur',toDownload[i].url,re.IGNORECASE))):
-        if(bool(re.search('/a/|gallery',toDownload[i].url,re.IGNORECASE))):
-            if ignoreImgurAlbums==False:
-                albumID=(toDownload[i].url.split('/')[4]).split('#')[0]
-                album_path=mypath+'/' + albumID + '/'
-                items=client.get_album_images(albumID)
-                if not os.path.isdir(album_path):
-                    os.makedirs(album_path)
-                    order=0
-                    for item in items:            
-                        download(item.link,album_path+str(order)+' '+''.join(filename(item.link)))
-                        order+=1 
-                print('imgur album!')
+    try:
+        if(bool(re.search('imgur',toDownload[i].url,re.IGNORECASE))):
+            if(bool(re.search('/a/|gallery',toDownload[i].url,re.IGNORECASE))):
+                if ignoreImgurAlbums==False:
+                    albumID=(toDownload[i].url.split('/')[4]).split('#')[0]
+                    album_path=mypath+'/' + albumID + '/'
+                    items=client.get_album_images(albumID)
+                    if not os.path.isdir(album_path):
+                        os.makedirs(album_path)
+                        order=0
+                        for item in items:            
+                            download(item.link,album_path+str(order)+' '+''.join(filename(item.link)))
+                            order+=1 
+                    print('imgur album!')
+                else:
+                    print('Ignoring imgur albums!')
+                
+            elif(bool(re.search('\.gifv',toDownload[i].url,re.IGNORECASE))):
+                base=os.getcwd()
+                os.chdir(mypath)
+                try:
+                    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                        ydl.download([toDownload[i].url])
+                except Exception as e:
+                    Unable.write(str(e)+' '+toDownload[i].url+' '+'\n')
+                os.chdir(base)
+                print('imgur gifv!')
             else:
-                print('Ignoring imgur albums!')
+                if not(imgCheck):
+                    toDownload[i].url+='.gif'
+                imgur_path=mypath+'/'+''.join(filename(toDownload[i].url))
+                download(toDownload[i].url,imgur_path)
+                print('imgur PNG, GIF, or JPG!')
             
-        elif(bool(re.search('\.gifv',toDownload[i].url,re.IGNORECASE))):
+        elif(bool(re.search('tumblr',toDownload[i].url,re.IGNORECASE))):
+            if (imgCheck):
+                tumblr_path=mypath+'/'+''.join(filename(toDownload[i].url))
+                download(toDownload[i].url,tumblr_path)
+            else: 
+                Unable.write('Working on it... '+toDownload[i].url+'\n')
+            print('tumblr!')
+            
+        elif(bool(re.search('i\.redd\.it|i\.reddituploads\.com',toDownload[i].url,re.IGNORECASE))):
+            if not(imgCheck):
+                toDownload[i].url+='.gif'
+            reddit_path=mypath+'/'+''.join(filename((re.sub(r'[?]','',toDownload[i].url))))
+            download(toDownload[i].url,reddit_path)
+            print('reddit hosted!')
+
+        elif(bool(re.search('|'.join(lines),toDownload[i].url,re.IGNORECASE))):
             base=os.getcwd()
             os.chdir(mypath)
             try:
@@ -84,48 +117,19 @@ for i in range(0,len(toDownload)):
             except Exception as e:
                 Unable.write(str(e)+' '+toDownload[i].url+' '+'\n')
             os.chdir(base)
-            print('imgur gifv!')
+            print('youtube-dl supported!')
+            
         else:
-            if not(imgCheck):
-                toDownload[i].url+='.gif'
-            imgur_path=mypath+'/'+''.join(filename(toDownload[i].url))
-            download(toDownload[i].url,imgur_path)
-            print('imgur PNG, GIF, or JPG!')
-        
-    elif(bool(re.search('tumblr',toDownload[i].url,re.IGNORECASE))):
-        if (imgCheck):
-            tumblr_path=mypath+'/'+''.join(filename(toDownload[i].url))
-            download(toDownload[i].url,tumblr_path)
-        else: 
-            Unable.write('Working on it... '+toDownload[i].url+'\n')
-        print('tumblr!')
-        
-    elif(bool(re.search('i\.redd\.it|i\.reddituploads\.com',toDownload[i].url,re.IGNORECASE))):
-        if not(imgCheck):
-            toDownload[i].url+='.gif'
-        reddit_path=mypath+'/'+''.join(filename((re.sub(r'[?]','',toDownload[i].url))))
-        download(toDownload[i].url,reddit_path)
-        print('reddit hosted!')
-
-    elif(bool(re.search('|'.join(lines),toDownload[i].url,re.IGNORECASE))):
-        base=os.getcwd()
-        os.chdir(mypath)
-        try:
-            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-                ydl.download([toDownload[i].url])
-        except Exception as e:
-            Unable.write(str(e)+' '+toDownload[i].url+' '+'\n')
-        os.chdir(base)
-        print('youtube-dl supported!')
-        
-    else:
-        if (imgCheck):
-            unknown_path=mypath+'/'+''.join(filename(toDownload[i].url))
-            download(toDownload[i].url,unknown_path)
-            print('unknown image host!')
-        else:
-            Unable.write('Not Supported! '+toDownload[i].url+'\n')
-            print('unknown',toDownload[i].url)
+            if (imgCheck):
+                unknown_path=mypath+'/'+''.join(filename(toDownload[i].url))
+                download(toDownload[i].url,unknown_path)
+                print('unknown image host!')
+            else:
+                Unable.write('Not Supported! '+toDownload[i].url+'\n')
+                print('unknown',toDownload[i].url)
+    except Exception as e:
+        print('Error retrieving link @' + toDownload[i].url)
+        Unable.write(str(e)+' '+toDownload[i].url+' '+'\n')
 
 Unable.close()
 input('\nPress enter to exit...')
