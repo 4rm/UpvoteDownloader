@@ -9,11 +9,7 @@ from urllib import request
 from urllib.parse import urlparse
 from imgurpython import ImgurClient
 
-ydl_opts = {
-	'format': 'bestaudio/best',
-	}
-
-path_wkhtmltopdf = r'C:\Program Files (x86)\wkhtmltopdf\bin\wkhtmltopdf.exe'
+path_wkhtmltopdf = r'C:\Program Files (x86)\wkhtmltopdf\bin\wkhtmltopdf.exe' #make sure this is set correctly
 config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
 
 def filename(string):
