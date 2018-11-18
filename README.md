@@ -17,6 +17,7 @@ Supported websites:
   <ul>
     <li><a href="#reddit">reddit</a></li>
     <li><a href="#imgur">imgur</a></li>
+    <li><a href="#PDFwkhtmltopdf">PDFkit & wkhtmltopdf</a></li>
   </ul>
 <li><a href="#run">Running</a></li>
 <li><a href="#youtube-dl">youtube-dl</a></li>
@@ -28,16 +29,24 @@ Supported websites:
 
 <table>
   <tr>
-    <td><a href="https://praw.readthedocs.io/en/stable/">PRAW</a> (5.0.1) </td>
+    <td><a href="https://praw.readthedocs.io/en/stable/">PRAW</a> (6.0.0) </td>
       <td>Python Reddit Api Wrapper</td>
   </tr>
   <tr>
-    <td><a href="https://rg3.github.io/youtube-dl/">youtube-dl</a> (2017.7.30.1) </td>
+    <td><a href="https://rg3.github.io/youtube-dl/">youtube-dl</a> (2018.08.04) </td>
       <td>YouTube (and so much more) video downloader</td>
   </tr>
   <tr>
     <td><a href="https://github.com/Imgur/imgurpython">imgurpython</a> (1.1.7) </td>
       <td>Python client for the imgur API</td>
+  </tr>
+  <tr>
+    <td><a href="http://pdfkit.org/">PDFkit</a> (0.6.1) </td>
+      <td>PDF generation library</td>
+  </tr>
+  <tr>
+    <td><a href="https://wkhtmltopdf.org/">wkhtmltopdf</a> (0.12.5.0) </td>
+      <td> Webpage PDF capture tool</td>
   </tr>
 </table>
 
@@ -112,6 +121,17 @@ In order to get your imgur client ID and secret (necessary to download albums, b
   <li>Your client ID and secret will be emailed to you. Enter it into UserInfo.py</li>
 </ol>
 
+### <a name="PDFwkhtmltopdf">PDFkit & wkhtmltopdf</a>
+In order to download text posts as .PDFs, we need to install PDFkit and wkhtmltopdf. Further usage info can be found <a href="https://github.com/JazzCore/python-pdfkit">here</a>.
+<ol>
+  <li>Install PDFkit <pre>pip install PDFkit</pre> </li>
+  <li>Install wkhtmltopdf
+    <li>Windows: download binary from https://wkhtmltopdf.org/</li>
+    <li>Debian/Ubuntu: <pre>sudo apt-get install wkhtmltopdf</pre></li>
+    <li>Mac: <pre>brew install caskroom/cask/wkhtmltopdf</pre></li>
+  </li>
+  <li>Edit path in UpvoteDownloader.py to match install location of wkhtmltopdf</li>
+</ol> 
 
 ## <a name="run">Running</a>
 
