@@ -14,7 +14,8 @@ ignoreImgurAlbums=1
 ydl_opts = {
     'restrictfilenames': True,
     'nooverwrites': True,
-    'format': 'best',
+    'format': 'bestvideo+bestaudio/best',
+    'quiet': True
 }
 
 ##Folder to save downloads to
