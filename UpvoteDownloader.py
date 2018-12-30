@@ -120,7 +120,7 @@ for i in range(0,len(toDownload)):
                     if (imgCheck):
                         imgur_path=mypath+'/'+''.join(filename(toDownload[i].id))+'.'+(urlparse(image.link).path).split('.')[-1]
                         download(toDownload[i].url,imgur_path)
-                        print('Basic imgur file' + toDownload[i].id)
+                        print('Basic imgur file ' + toDownload[i].id)
             elif(bool(re.search('tumblr',toDownload[i].url,re.IGNORECASE))):
                 if (imgCheck):
                     tumblr_path=mypath+'/'+toDownload[i].id+'.'+(urlparse(toDownload[i].url).path).split('.')[-1]
