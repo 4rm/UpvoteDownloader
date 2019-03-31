@@ -7,6 +7,7 @@ Supported websites:
 <li>reddit-hosted images</li>
 <li>direct tumblr links</li>
 <li>Everything supported by youtube-dl (see <a href="#youtube-dl">youtube-dl</a> for more)</li>
+<li>reddit self-posts</li>
 </ul>
 
 <table>
