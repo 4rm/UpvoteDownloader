@@ -127,10 +127,12 @@ In order to download text posts as .PDFs, we need to install PDFkit and wkhtmlto
 <ol>
   <li>Install PDFkit <pre>pip install PDFkit</pre> </li>
   <li>Install wkhtmltopdf
+    <ol>
     <li>Windows: download binary from https://wkhtmltopdf.org/</li>
     <li>Debian/Ubuntu: <pre>sudo apt-get install wkhtmltopdf</pre></li>
     <li>Mac: <pre>brew install caskroom/cask/wkhtmltopdf</pre></li>
   </li>
+    </ol>
   <li>Edit path in UpvoteDownloader.py to match install location of wkhtmltopdf</li>
 </ol> 
 
