@@ -9,6 +9,10 @@ from urllib import request
 from urllib.parse import urlparse
 from imgurpython import ImgurClient
 
+ydl_opts = {
+	'format': 'bestvideo+bestaudio/best',
+	}
+
 path_wkhtmltopdf = r'C:\Program Files (x86)\wkhtmltopdf\bin\wkhtmltopdf.exe' #make sure this is set correctly
 config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
 
@@ -65,7 +69,7 @@ elif whatToDownload==2:
     toDownload=list(reddit.redditor(username).upvoted(limit=limit))+list(reddit.redditor(username).saved(limit=limit))
 
 for i in range(0,len(toDownload)):
-    print(i,' ',end='')
+    print(i,toDownload[i].id,'\t',end='')
     if toDownload[i].hidden==True and ignoreHidden==True:
         print('Post hidden! Ignoring...')
         continue
