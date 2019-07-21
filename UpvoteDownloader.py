@@ -53,6 +53,9 @@ if ignoreImgurAlbums==False:
     client = ImgurClient(client_id=imgur_client_id,
                          client_secret=imgur_client_secret)
 
+if postFirstRun == 1:
+    limit=50
+
 print('Creating error log...')
 Unable=open('UndownloadableLinks.txt','w+')
 
