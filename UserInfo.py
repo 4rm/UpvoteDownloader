@@ -26,3 +26,6 @@ whatToDownload=2
 
 ##(0 = attempt to download hidden links, 1 = ignore hidden links)
 ignoreHidden=1
+
+##(0 = get all (first time run), 1 = get 100 most recent)
+postFirstRun = 0
