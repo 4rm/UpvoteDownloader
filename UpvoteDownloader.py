@@ -73,6 +73,9 @@ elif whatToDownload==2:
 
 for i in range(0,len(toDownload)):
     print(i,toDownload[i].id,'\t',end='')
+    if isinstance(toDownload[i], praw.models.Comment):
+        print('Saved comment! Ignoring...')
+        continue
     if toDownload[i].hidden==True and ignoreHidden==True:
         print('Post hidden! Ignoring...')
         continue
