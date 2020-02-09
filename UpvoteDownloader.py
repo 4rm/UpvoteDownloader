@@ -2,19 +2,16 @@ import re
 import os
 import praw
 import youtube_dl
-import pdfkit
 import glob
 from UserInfo import *
 from urllib import request
 from urllib.parse import urlparse
 from imgurpython import ImgurClient
+from weasyprint import HTML
 
 ydl_opts = {
-	'format': 'bestvideo+bestaudio/best',
+	'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4',
 	}
-
-path_wkhtmltopdf = r'C:\Program Files (x86)\wkhtmltopdf\bin\wkhtmltopdf.exe' #make sure this is set correctly
-config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
 
 def filename(string):
     nameFriendlyString=(re.sub(r'[/:]','',string)).split('?')[0]
@@ -180,7 +177,7 @@ for i in range(0,len(toDownload)):
                 elif bool(toDownload[i].is_self):
                     if not os.path.isfile(mypath+'/'+toDownload[i].id+'.pdf'):
                         if not bool(toDownload[i].over_18):
-                            pdfkit.from_url(toDownload[i].url, mypath+'/'+toDownload[i].id+'.pdf',configuration=config)
+                            HTML(toDownload[i].url.replace('www','old')).write_pdf(mypath+'/'+toDownload[i].id+'.pdf')
                 else:
                     Unable.write('Not Supported! '+toDownload[i].url+' http://www.reddit.com/'+toDownload[i].id+'\n')
                     print('Unsupported host: ' + toDownload[i].url + toDownload[i].id)
