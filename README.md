@@ -18,7 +18,7 @@ Supported websites:
   <ul>
     <li><a href="#reddit">reddit</a></li>
     <li><a href="#imgur">imgur</a></li>
-    <li><a href="#PDFwkhtmltopdf">PDFkit & wkhtmltopdf</a></li>
+    <li><a href="#PDFwkhtmltopdf">GTK and WeasyPrint</a></li>
   </ul>
 <li><a href="#run">Running</a></li>
 <li><a href="#youtube-dl">youtube-dl</a></li>
@@ -42,11 +42,11 @@ Supported websites:
       <td>Python client for the imgur API</td>
   </tr>
   <tr>
-    <td><a href="http://pdfkit.org/">PDFkit</a> (0.6.1) </td>
-      <td>PDF generation library</td>
+    <td><a href="https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer">GTK Installer</a> (3.24.13) </td>
+      <td>Rendering tools for weasyprint</td>
   </tr>
   <tr>
-    <td><a href="https://wkhtmltopdf.org/">wkhtmltopdf</a> (0.12.5.0) </td>
+    <td><a href="https://weasyprint.readthedocs.io/en/stable/index.html">WeasyPrint</a> (v51) </td>
       <td> Webpage PDF capture tool</td>
   </tr>
 </table>
@@ -122,19 +122,8 @@ In order to get your imgur client ID and secret (necessary to download albums, b
   <li>Your client ID and secret will be emailed to you. Enter it into UserInfo.py</li>
 </ol>
 
-### <a name="PDFwkhtmltopdf">PDFkit & wkhtmltopdf</a>
-In order to download text posts as .PDFs, we need to install PDFkit and wkhtmltopdf. Further usage info can be found <a href="https://github.com/JazzCore/python-pdfkit">here</a>.
-<ol>
-  <li>Install PDFkit <pre>pip install PDFkit</pre> </li>
-  <li>Install wkhtmltopdf
-    <ol>
-    <li>Windows: download binary from https://wkhtmltopdf.org/</li>
-    <li>Debian/Ubuntu: <pre>sudo apt-get install wkhtmltopdf</pre></li>
-    <li>Mac: <pre>brew install caskroom/cask/wkhtmltopdf</pre></li>
-  </li>
-    </ol>
-  <li>Edit path in UpvoteDownloader.py to match install location of wkhtmltopdf</li>
-</ol> 
+### <a name="PDFwkhtmltopdf">GTK and WeasyPrint</a>
+In order to download text posts as .PDFs, we need to install GTK and WeasyPrint. Further installation info can be found <a href="https://weasyprint.readthedocs.io/en/latest/install.html">here</a>.
 
 ## <a name="run">Running</a>
 
