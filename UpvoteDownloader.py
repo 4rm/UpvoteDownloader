@@ -3,15 +3,19 @@ import os
 import praw
 import youtube_dl
 import glob
+import requests
 from UserInfo import *
 from urllib import request
 from urllib.parse import urlparse
 from imgurpython import ImgurClient
+from bs4 import BeautifulSoup
 from weasyprint import HTML
 
 ydl_opts = {
 	'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4',
 	}
+
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
 
 def filename(string):
     nameFriendlyString=(re.sub(r'[/:]','',string)).split('?')[0]
@@ -178,6 +182,16 @@ for i in range(0,len(toDownload)):
                     if not os.path.isfile(mypath+'/'+toDownload[i].id+'.pdf'):
                         if not bool(toDownload[i].over_18):
                             HTML(toDownload[i].url.replace('www','old')).write_pdf(mypath+'/'+toDownload[i].id+'.pdf')
+                elif bool(re.search('reddit\.com/gallery', toDownload[i].url,re.IGNORECASE)):
+                    print('Reddit album!')
+                    response=requests.get(toDownload[i].url, headers=headers)
+                    soup = BeautifulSoup(response.text, 'lxml')
+                    img = soup.find_all('a', {'rel':'noopener noreferrer'})
+                    if not (os.path.isdir(mypath+'/' + toDownload[i].id + '/')):
+                        os.makedirs(mypath+'/' + toDownload[i].id + '/')
+                        for g, image in enumerate(img):
+                            download(image['href'], mypath+'/' + toDownload[i].id + '/' + str(g) + ' ' + toDownload[i].id+'.jpg')
+                        
                 else:
                     Unable.write('Not Supported! '+toDownload[i].url+' http://www.reddit.com/'+toDownload[i].id+'\n')
                     print('Unsupported host: ' + toDownload[i].url + toDownload[i].id)
